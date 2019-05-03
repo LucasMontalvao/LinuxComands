@@ -1,0 +1,142 @@
+Exercícios Linux
+
+1.	Utilize o comando echo para imprimir seu nome no terminal.
+R: echo "Lucas"
+
+2.	Utilize o comando echo para salvar seu nome em um arquivo chamado cliente01.txt. Confira o resultado com o comando less.
+R: echo "Lucas" > Cliente01.txt
+less Cliente01.txt
+
+3.	Utilize o comando echo para salvar o nome da cidade em que você nasceu no
+final do arquivo cliente01.txt.
+R: echo "Joinville" >> Cliente01.txt
+
+4.	Crie um diretório chamado clientes com o comando mkdir. Confira o
+resultado com o comando ls.
+R: mkdir Cliente
+Ls
+
+5.	Mova o arquivo cliente 01:txt para o diretório clientes. Confora o resultado com os comandos ls e cd.		
+R: mv ~/Cliente01.txt Cliente
+cd Cliente
+ls
+
+6.	Crie uma cópia do arquivo cliente 01:txt com o comando cp chamado cliente01.txt.bkp. Confira o resultado.
+R: cp Cliente01.txt cliente.txt.bkp.
+ls
+
+7.	Remova o arquivo cliente 01:txt com o comando rm. Confira o resultado.
+R: rm Cliente01.txt
+ls
+
+8.	Crie um arquivo chamado de cliente.script com todos os comandos utilizados acima, na mesma ordem de execução.
+R: vi cliente.script
+i
+echo "Lucas"
+echo "Lucas" > Cliente01.txt
+less Cliente01.txt
+echo "Joinville" >> Cliente01.txt
+mkdir Cliente
+ls
+mv ~/Cliente01.txt Cliente
+cd Cliente
+ls
+cp Cliente01.txt cliente.txt.bkp.
+ls
+rm Cliente01.txt
+ls
+
+9.	Modifique o arquivo cliente.script com o comando chmod para se tornar um arquivo executável. Execute o arquivo e confira o resultado. Para executar utilize o comando ./cliente.script. Obs: exclua a pasta clientes antes de executar o script para garantir que está funcionando corretamente.
+R: chmod 777 cliente.script
+./cliente.script
+
+10.	Execute o comando cal. Observe o resultado. Execute o comando echo|cal > hoje.txt. Utilize os comandos ls e less para conferir o resultado. O que ocorreu? Qual a função do operador —?
+R: Ao utilizar o comando echo|cal>hoje.txt foi gerando um arquivo tipo txt nomeado hoje que contém uma tabela com mês correspondente ao horário da máquina. O less permite a visualização do arquivo sem alterá-lo.
+
+11.	Utilize o comando wget para baixar o arquivo cidades sc.txt no endereço: https://gist.githubusercontent.com/leandersonandre/c8cba982f42262591be628e5397dc3f/raw/bd13a3e13823708e477f99f9285f845b292714c6/cidades_sc.txt.
+R: wget https://gist.githubusercontent.com/leandersonandre/c8cba982f42262591be628e5397dc3f/raw/bd13a3e13823708e477f99f9285f845b292714c6/cidades_sc.txt.
+
+12.	Execute o comando grep Balneario cidades sc.txt. Qual é o resultado?
+R: Ele seleciona e mostra na tela todas as cidades que começam com a palavra Balneario.
+
+13.	Execute o comando grep Balneario cidades sc.txt. Qual é o resultado?
+R: Não aparece nada no terminal pois não existe nenhuma cidade que comece com a palavra balneario.
+
+14.	Execute o comando grep ” do Sul” cidades sc.txt. Qual é o resultado?
+R: Ele seleciona e mostra na tela todas as cidades que terminam “do Sul”.
+
+15.	Utilize os comandos cat e grep para filtrar as cidades que começam com o nome Balneario.
+R: Retorna os mesmos resultados utilizando o comando grep, a diferença é que em um diretório muito grande o comando cat suprime o campo de busca do comando grep.
+
+16.	Crie um arquivo chamado balneario.txt com o conteúdo filtrado no problema 15.
+R: cat cidades_sc.txt|grep Balneario > balneario.txt
+
+17.	Compacte o arquivo balneario.txt, nomeando de compactado.tar com o comando tar.
+tar -cvf balneario.tar balneario.txt
+
+18.	Descompacte o arquivo compactado.tar com o comando tar.
+tar -xvf balneario.tar
+
+
+
+
+Exercícios do SHELL
+1.
+#echo "Digite o seu nome: "
+#read x
+#echo "Bom dia $x"
+
+2.
+#echo "Digite um numero: "
+#read x
+#echo "Digite outro numero: "
+#read z
+#y=$(($x*$z))
+#echo "Seu resultado $y"
+
+
+
+3.
+echo "Digite um numero: "
+read x
+#if [ $x -gt 0 ]; then
+        #echo "maior que 0"
+#elif [ $x -lt 0 ]; then
+        #echo "menor que zero"
+#else
+        #echo "igual zero"
+#fi
+
+4.
+y=1
+while [ $y -le 10 ]; do
+        z=$(($x*$y))
+        echo "$x * $y = $z "
+        y=$(($y+1))
+done
+
+5.
+#!/usr/bash
+echo "1: Calendrio"
+echo "2: Listas de arquivos do diretrio"
+read x
+if [ $x -eq 1 ]; then
+ 
+ 
+~
+~
+~
+#!/usr/bash
+echo "1: Calendrio"
+echo "2: Listas de arquivos do diretrio"
+read x
+if [ $x -eq 1 ]; then
+        echo|cal
+elif [ $x -eq 2 ]; then
+        cd /Documentos
+        vi arquivo.txt
+        vi arquivo2.txt
+        ls
+else
+        echo "Voc escreveu errado"
+fi
