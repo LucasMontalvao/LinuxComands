@@ -42,3 +42,5 @@ if [ $result ]; then
 else
   echo "Usuário $user não encontrado."
 fi
+
+#Equipe: Lucas Montalvão Bongalhardo e Charles Tuan
